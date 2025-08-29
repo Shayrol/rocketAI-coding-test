@@ -46,15 +46,15 @@ export default function SajuTable() {
                     <div
                       className={`
                       w-full flex flex-col items-center justify-center px-[min(1.5vw,6px)] py-[min(0.9vw,4px)] rounded-xl
-                      leading-tight border text-white
+                      leading-tight border
                       ${
                         val.sub === "정" || val.sub === "사"
-                          ? "bg-[#C23030] border-[#C23030]"
+                          ? "bg-[#C23030] border-[#C23030] text-white"
                           : val.sub === "인"
-                          ? "bg-[#18868C] border-[#18868C]"
+                          ? "bg-[#18868C] border-[#18868C] text-white"
                           : val.sub === "유"
                           ? "bg-[#F9F9F9] border-black text-black"
-                          : "bg-[#2F2F2F] border-[#2F2F2F]"
+                          : "bg-[#2F2F2F] border-[#2F2F2F] text-white"
                       }
                     `}
                     >
