@@ -18,7 +18,7 @@ export default function Saju({ name }: { name: string }) {
           <h2 className="text-[min(4vw,18px)] text-center text-[#424242] font-normal whitespace-nowrap">
             {name}님의 사주
           </h2>
-          <p className="text-[min(4.5vw,20px)] text-center text-[#424242] font-bold whitespace-nowrap">
+          <p className="text-[min(6vw,20px)] text-center text-[#424242] font-bold whitespace-nowrap">
             1980년 08월 27일 08:10
           </p>
         </header>

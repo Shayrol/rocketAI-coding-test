@@ -6,17 +6,17 @@ export default function SajuTable() {
       <table className="w-[90%] h-[90%] table-fixed border-collapse">
         <thead>
           <tr>
-            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border border-black w-[15%]"></th>
-            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border border-black">
+            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border-b-2 border-r-2 border-black w-[15%]"></th>
+            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border-b-2 border-b-black border-r-[1px] border-r-[#8A8A8A]">
               時
             </th>
-            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border border-black">
+            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border-b-2 border-b-black border-r-[1px] border-r-[#8A8A8A]">
               日
             </th>
-            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border border-black">
+            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border-b-2 border-b-black border-r-[1px] border-r-[#8A8A8A]">
               月
             </th>
-            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border border-black">
+            <th className="text-[min(3.5vw,20px)] font-bold p-[min(3vw,12px)] border-b-2 border-b-black border-r-2 border-r-black">
               年
             </th>
           </tr>
@@ -25,7 +25,7 @@ export default function SajuTable() {
           {sajuRows.map((row, idx) => (
             <tr key={idx}>
               {/* row label */}
-              <th className="text-[min(2.2vw,10px)] font-medium p-[min(1.5vw,6px)] border border-black">
+              <th className="text-[min(2.2vw,10px)] font-medium p-[min(1.5vw,6px)] border-b-2 border-b-black border-r-2 border-r-black">
                 <div className="flex flex-col justify-center items-center w-full">
                   <p className="text-[min(2.2vw,12px)] leading-tight text-nowrap">
                     {row.label_1}
@@ -39,7 +39,14 @@ export default function SajuTable() {
               {row.values.map((val, i) => (
                 <td
                   key={i}
-                  className="text-center px-[min(1.2vw,5px)] border border-black"
+                  className={`
+                    text-center px-[min(1.2vw,5px)] border-b-2 border-b-black  bg-white
+                    ${
+                      row.values.length - 1 === i
+                        ? "border-r-2 border-r-black"
+                        : "border-r-[1px] border-r-[#8A8A8A]"
+                    }
+                  `}
                 >
                   {/* 천간, 지지 → 특별 스타일 */}
                   {["천간", "지지"].includes(row.label_2) ? (
@@ -65,6 +72,7 @@ export default function SajuTable() {
                       <p className="text-[min(2vw,9px)]">{val.extra}</p>
                     </div>
                   ) : (
+                    // 나머지 결과 값
                     <div className="flex flex-col items-center justify-center leading-tight">
                       {val.main.split(" ").map((mainEl, idx2) => (
                         <div key={idx2} className="flex flex-col items-center">
